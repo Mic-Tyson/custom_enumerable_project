@@ -55,6 +55,12 @@ class Array
     my_each { |elem| accumulator = yield(accumulator, elem) }
     accumulator
   end
+
+  def my_select
+    selected_array = []
+    my_each { |elem| selected_array << elem if yield(elem) }
+    selected_array
+  end
   
 
 end
