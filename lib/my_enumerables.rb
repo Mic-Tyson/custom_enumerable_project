@@ -23,21 +23,18 @@ class Array
   end
 
   def my_all?
-    success = true
-    my_each { |elem| success = false unless yield(elem) }
-    success
+    my_each { |elem| return false unless yield(elem) }
+    true
   end
 
   def my_any?
-    success = false
-    my_each { |elem| success = true if yield(elem)}
-    success
+    my_each { |elem| return true if yield(elem)}
+    false
   end
 
   def my_none?
-    success = true
-    my_each { |elem| success = false if yield(elem)}
-    success
+    my_each { |elem| return false if yield(elem)}
+    true
   end
 
   def my_count
